@@ -1,7 +1,7 @@
 package com.agile.thought.interview.projects.jsandbox.part1;
 
 class MyNonPublicClass {
-    private String var1;
+    private final static String var1;
 
     public MyNonPublicClass() {
         this.var1 = "var1 initializaed from default constructor.";
@@ -38,7 +38,7 @@ class MyNonPublicClass {
 
     class MyInnerClass2 extends MyAbstractInnerClass1{
 
-        String getMethod1() {
+        static String getMethod1() {
             return "Value from getMethod1";
         }
 
@@ -51,11 +51,14 @@ class MyNonPublicClass {
         }
 
         String getMethod4() {
+            String kvar = "valueX";
             class MyLocalInnerClass1 {
                 String getMethod4() {
-                    return var1 + ", getMethod4 from LocalInnerClass1";
+                    kvar += var1 + ", getMethod4 from LocalInnerClass1";
+                    return kvar;
                 }
             }
+            //var1 += "Something";
             return new MyLocalInnerClass1().getMethod4();
         }
     }
@@ -103,7 +106,7 @@ class MyNonPublicClass2 implements MyPackageInterface {
         System.out.println("from MyNonPublicClass2.method2");
     }
 
-    public static void main(String[] args) {
+    public static void main(String... args) { // how is this called?
         System.out.println("from Main method in MyNonPublicClass2");
         System.out.println("Calling static method interface");
     }
@@ -113,15 +116,20 @@ class MyNonPublicClass3 {
 
     abstract class MyAbstractClass3 {
         abstract String getMethod1();
+        abstract String getMethod2();
     }
 
-    interface MyPackageInterface2 {
+    private interface MyPackageInterface2 {
         String getMethod1();
+        
+        static String getMethod2() {
+            return "value from static Integer getMethod2 ";
+        }
     }
 
     String getMethod1() {
         MyAbstractClass3 var1 = new MyAbstractClass3() {
-            String getMethod1() {
+            private static String getMethod1() {
                 return "Value from Anonymous class MyAbstractClass3.getMethod1";
             }
         };
@@ -135,6 +143,6 @@ class MyNonPublicClass3 {
                 return "Value from Anonymous class MyPackageInterface2.getMethod1";
             }
         };
-        return var1.getMethod1();
+        return var1.getMethod1() + var1.getMethod2();
     }
 }
