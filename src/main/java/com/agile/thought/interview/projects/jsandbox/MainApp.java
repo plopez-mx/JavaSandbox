@@ -1,5 +1,6 @@
 package com.agile.thought.interview.projects.jsandbox;
 
+import com.agile.thought.interview.projects.jsandbox.part1.MyPublicClass;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MainApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MainApp.class, args);
-		String[] variable = {"12","12","12","12"};
+		//SpringApplication.run(MainApp.class, args);
+		MyPublicClass.main(args);
 	}
 
 }

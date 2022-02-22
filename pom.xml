@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.agile.thought.interview.projects</groupId>
-	<artifactId>CarWash</artifactId>
+	<artifactId>atsandbox</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CarWash</name>
-	<description>CarWash Project</description>
+	<name>JavaSandbox</name>
+	<description>Sandbox Project</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
